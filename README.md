@@ -2,6 +2,16 @@
 
 A simple table printing library in C++
 
+```
++---+-----+-----------+
+| N | N^2 |      test |
++---+-----+-----------+
+| 0 |   0 |    TEST-0 |
+| 1 |   1 |    TEST-1 |
+| 2 |   4 |   TEST-16 |
++---+-----+-----------+
+```
+
 ## Sample
 ```cpp
 // sample.cpp
