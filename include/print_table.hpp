@@ -2,6 +2,7 @@
 #define __PRINT_TABLE_HPP__
 #include <vector>
 #include <unordered_map>
+#include <map>
 
 namespace mtk {
 namespace print_table {
@@ -95,6 +96,23 @@ inline void print_table(
 		detail::print_row(col_names, row, max_col_name_length, padding, output);
 	}
 	detail::print_hline(col_names, max_col_name_length, padding, output);
+}
+
+inline void print_table(
+		const std::vector<std::map<std::string, std::string>>& table,
+		const std::vector<std::string> col_names,
+		FILE* output = stdout
+		) {
+	table_t t;
+	for (const auto& row : table) {
+		row_t r;
+		for (const auto& c : row) {
+			r.insert(std::make_pair(c.first, c.second));
+		}
+		t.push_back(r);
+	}
+	
+	print_table(t, col_names, output);
 }
 } // namespace print_table
 } // namespace mtk
